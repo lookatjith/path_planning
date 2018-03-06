@@ -72,7 +72,6 @@ class AStar(object):
                                 elif successor in closed_path and closed_path[successor] > cost:
                                     open_path[successor] = cost
                         else:
-                            print("goal point reached")
                             closed_path[cost] = pos
                             self._final_path.append(pos)
                             return self._final_path

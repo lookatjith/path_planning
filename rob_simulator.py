@@ -17,7 +17,7 @@ class RobSimulator(object):
         # obstacles
         obstacles = [(2, 0), (2, 1), (3, 3), (4, 2), (2, 3), (4, 3), (4, 4)]
         # goal point
-        goal_point = (1, 5)
+        goal_point = (5, 5)
         # robot init
         robot_init = (1, 0)
         # step size for reaching the goal
@@ -25,7 +25,7 @@ class RobSimulator(object):
         # plotsimulation
         plt.ion()
         # plot to pause in between
-        pause_sec = 1
+        pause_sec = 0.1
 
         if approach == "random":
             random_planner = RandomPlanner(

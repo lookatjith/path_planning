@@ -48,7 +48,7 @@ class RobSimulator(object):
             random_planner = RandomPlanner(
                 max_step_number, world_state, obstacles, goal_point, robot_init, pause_sec)
             random_planner.random_planner(
-                x=robot_init[0], y=robot_init[1], new_x=robot_init[0], new_y=robot_init[1])
+                x=robot_init[0], y=robot_init[1])
         elif approach == "a_star":
             a_star = AStar(world_state, obstacles, goal_point, robot_init, pause_sec)
             

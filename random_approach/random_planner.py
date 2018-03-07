@@ -40,7 +40,7 @@ class RandomPlanner(object):
         self._pause_sec = pause_sec
         plot_movement(self._world_state, self._obstacles, self._goal_point, self._robot_init)
 
-    def random_planner(self, x, y, new_x, new_y):
+    def random_planner(self, x, y):
         new_x = x
         new_y = y
 

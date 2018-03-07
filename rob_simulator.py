@@ -10,7 +10,7 @@ class RobSimulator(object):
     Parameters
     ----------
     Robot environment: 2D points
-        <tuple>
+        list of <tuples>
     obstacles: 2D points inside the robot environment
         list of <tuples>
     goal point: 2D point for the robot to reach

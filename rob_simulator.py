@@ -2,10 +2,27 @@
 from random_approach.random_planner import RandomPlanner
 from optimal_approaches.a_star import AStar
 from matplotlib import pyplot as plt
-from matplotlib import *
-
 
 class RobSimulator(object):
+    """
+    A simple robot simulator which simulates an 2D environment with obstacles.
+
+    Parameters
+    ----------
+    Robot environment: 2D points
+        <tuple>
+    obstacles: 2D points inside the robot environment
+        list of <tuples>
+    goal point: 2D point for the robot to reach
+        <tuple>
+    robot_init: initial state of the robot
+        <tuple>
+    approach: 2 different approaches are covered
+        1. Random approach
+            random movement
+        2. Optimal approaches
+            1. A-star algorithm
+    """
     def __init__(self, approach):
         # world coordinates
         world_state = (0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5), \
@@ -40,7 +57,7 @@ if __name__ == '__main__':
     # get the approach name from the user
     import argparse
     parser = argparse.ArgumentParser("parsing the arguments")
-    parser.add_argument("approach", help="An approach to pass by")
+    parser.add_argument("approach", help="An approach to simulate the robot")
     args = parser.parse_args()
 
     rob_simulator = RobSimulator(args.approach)

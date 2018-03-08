@@ -37,5 +37,5 @@ example: python rob_simulator.py random
 
 ## Example
 
-![Alt text](figure_1-4.png?raw=true "A robot navigating a simulated environment as shown below
+![Alt text](figure.png?raw=true "A robot navigating a simulated environment as shown below
 ")

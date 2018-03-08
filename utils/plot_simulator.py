@@ -18,3 +18,6 @@ def plot_movement(world_state, obstacles, goal_point, robot_pos):
     plt.plot(robot_pos[0], robot_pos[1], 'b*', markersize=10)
     plt.plot(goal_point[0], goal_point[1], 'go', markersize=10)
     plt.show()
+
+def pausing_plot(sec):
+    plt.pause(sec)

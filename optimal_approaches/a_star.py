@@ -1,9 +1,26 @@
 #!/usr/bin/env python
 import numpy as np
-
-from matplotlib import pyplot as plt
+from utils.plot_simulator import plot_movement
+from utils.plot_simulator import pausing_plot
 
 class AStar(object):
+    """
+    Method uses A star approach to find the optimal way to reach the
+    goal point from the initial position
+
+    Parameters
+    ----------
+    world_state: list of <tuple>
+        Environment coordinates
+    obstacles: list of <tuple>
+        Not traversing path
+    goal_point: <tuple>
+        pos of the robot to be achieved by the algorithm
+    robot_init: <tuple>
+        starting pos of the robot 
+    pause_sec: <int>
+        pausing time for ploting
+    """
     def __init__(self, world_state, obstacles, goal_point, robot_init, pause_sec):
         self._world_state = world_state
         self._obstacles = obstacles
@@ -11,23 +28,12 @@ class AStar(object):
         self._robot_init = robot_init
         self._final_path = []
         
-        self._final_path = self.optimal_planner()
+        self._final_path = self.a_star()
         for path in self._final_path:
-            self.plot_movement(self._world_state, self._obstacles, self._goal_point, path)
-            plt.pause(pause_sec)            
+            plot_movement(self._world_state, self._obstacles, self._goal_point, path)
+            pausing_plot(pause_sec)            
 
-    def optimal_planner(self):
-        """
-        Method uses A star approach to find the optimal way to reach the
-        goal point from the starting point
-
-        Advantages
-        ----------
-        1) compared to the random approach, optimal planner finds the path
-        in a short time
-        2) Does not get stuck in between obstacles
-        """
-
+    def a_star(self):
         open_path = {}
         closed_path = {}
 
@@ -78,21 +84,3 @@ class AStar(object):
 
             closed_path[cost] = pos
             self._final_path.append(pos)
-
-    def plot_movement(self, world_state, obstacles, goal_point, robot_init):
-        """ Plot environment including robot and obstacles """
-        plt.cla()
-        x_min, x_max = min(self._world_state)[0], max(self._world_state)[0]
-        y_min, y_max = min(self._world_state)[1], max(self._world_state)[1]
-
-        axes = plt.gca()
-        axes.set_xlim([x_min - 1, x_max + 1])
-        axes.set_ylim([y_max + 1, y_min - 1])
-        plt.grid()
-
-        for x, y in self._obstacles:
-            plt.plot(x, y, 'sr', ls='solid', markersize=40)
-
-        plt.plot(robot_init[0], robot_init[1], 'b*', markersize=10)
-        plt.plot(goal_point[0], goal_point[1], 'go', markersize=10)
-        plt.show()

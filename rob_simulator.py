@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 from random_approach.random_planner import RandomPlanner
 from optimal_approaches.a_star import AStar
+from optimal_approaches.random_trees import RandomTrees
 from matplotlib import pyplot as plt
 
 class RobSimulator(object):
@@ -51,6 +52,10 @@ class RobSimulator(object):
                 x=robot_init[0], y=robot_init[1])
         elif approach == "a_star":
             a_star = AStar(world_state, obstacles, goal_point, robot_init, pause_sec)
+        elif approach == "random_trees":
+            r_tree = RandomTrees(world_state, obstacles, goal_point, robot_init, pause_sec)
+        else:
+            print("possible approaches: 'random', 'a_star', 'random_trees'")
             
 
 if __name__ == '__main__':

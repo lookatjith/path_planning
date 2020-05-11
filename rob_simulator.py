@@ -34,7 +34,7 @@ class RobSimulator(object):
         # obstacles
         obstacles = [(2, 0), (2, 1), (3, 3), (4, 2), (2, 3), (4, 3), (4, 4)]
         # goal point
-        goal_point = (5, 5)
+        goal_point = (5, 1)
         # robot init
         robot_init = (1, 0)
         # step size for reaching the goal

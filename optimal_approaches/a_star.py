@@ -45,8 +45,8 @@ class AStar(object):
 
         while open_path is not bool(open_path):
             # get the minimum value of minimum key
-            min_val = min(open_path.itervalues())
-            min_keys = [key for key, value in open_path.iteritems()
+            min_val = min(open_path.values())
+            min_keys = [key for key, value in open_path.items()
                         if value == min_val]
             pos = min_keys[0]
             # for key in min_keys:
